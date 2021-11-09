@@ -68,7 +68,7 @@ class Profile(threading.Thread):
             stop_event.wait(self._period)
 
         # Dump profiling data
-        with open("flamegraph-beta.txt", "w") as fp:
+        with open("flamegraph.out", "w") as fp:
             for stack, hits in self._data.items():
                 print(";".join(stack[::-1]), hits, file=fp)
 

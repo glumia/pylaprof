@@ -6,14 +6,14 @@ import requests
 def handler(context, event):
     print("handler: received context", context, "and event", event)
     sleepy_task()
-    io_task()
     cpu_intens_task()
+    io_task()
     print("handler: done")
     return {"some processed": "data"}
 
 
 def sleepy_task():
-    time.sleep(3)
+    time.sleep(3)  # ...
 
 
 def cpu_intens_task():
