@@ -1,0 +1,26 @@
+# callgrind format
+version: 1
+creator: pprofile
+event: usphit :microseconds/hit
+events: hits microseconds usphit
+fl=/home/gius/pylamprof/handler.py
+fn=long_cpu_intens_task:20
+22 20 0 0
+23 67 0 0
+fn=handler:6
+cfl=/home/gius/pylamprof/handler.py
+cfn=long_cpu_intens_task:20
+calls=87 20
+11 87 0 0
+fl=/home/gius/pylamprof/./launcher.py
+fn=main:8
+9 1 0 0
+cfl=/home/gius/pylamprof/handler.py
+cfn=handler:6
+calls=87 6
+13 87 0 0
+fn=<module>:3
+cfl=/home/gius/pylamprof/./launcher.py
+cfn=main:8
+calls=88 8
+21 88 0 0
