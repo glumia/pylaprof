@@ -239,18 +239,36 @@ class Profile(threading.Thread):
         stop_event.clear()
         self.clean_exit = True
 
+
+class profile:
+    """
+    Allows to use `Profile` as a decorator:
+
+    @profile(period=0.01, single=True)
+    def slow_function():
+        ...
+    """
+
+    def __init__(self, period=0.01, single=True, min_time=0, sampler=None, storer=None):
+        """
+        Check `Profile`.
+        """
+        self.period = period
+        self.single = single
+        self.min_time = 0
+        self.sampler = sampler
+        self.storer = storer
+
     def __call__(self, func):
-        """
-        Allows to use `Profile` as a decorator:
-
-        @Profile(period=0.01, single=True)
-        def slow_function():
-            ...
-        """
-
         @wraps(func)
         def pfunc(*args, **kwargs):
-            with self:
+            with Profile(
+                period=self.period,
+                single=self.single,
+                min_time=self.min_time,
+                sampler=self.sampler,
+                storer=self.storer,
+            ):
                 return func(*args, **kwargs)
 
         return pfunc
