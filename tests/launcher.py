@@ -3,7 +3,7 @@
 import sys
 
 from handler import handler
-from pylaprof import Profile
+from pylaprof import FS, S3, Profile
 
 
 def main():
@@ -17,8 +17,17 @@ def main():
 
 
 if __name__ == "__main__":
-    if len(sys.argv) > 1 and sys.argv[1] == "--bare":
+    if len(sys.argv) == 1:  # py-spy or other external profiler
         main()
+        exit(0)
+
+    if sys.argv[1] == "--s3":
+        storer = S3()
+    elif sys.argv[1] == "--fs":
+        storer = FS()
     else:
-        with Profile(period=0.01, single=True):
-            main()
+        print("wat")
+        exit(1)
+
+    with Profile(period=0.01, storer=storer):
+        main()

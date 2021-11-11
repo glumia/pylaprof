@@ -1,0 +1,25 @@
+service: glumia-playground
+
+provider:
+  name: aws
+  runtime: python3.7
+  iamRoleStatements:
+    - Effect: Allow
+      Action:
+        - s3:PutObject
+      Resource: arn:aws:s3:::pylaprof/*
+
+functions:
+  dummy-fun:
+    handler: handler.handler
+    memorySize: 256
+    timeout: 500
+
+package:
+  patterns:
+    - "!**"
+    - "handler.py"
+    - "pylaprof/**"
+
+plugins:
+  - serverless-python-requirements

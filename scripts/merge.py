@@ -32,7 +32,7 @@ def main():
         "-o",
         "--out",
         default="stackcollapse-merged.txt",
-        help="write resuting stackcollapse to this file.",
+        help="write resulting stackcollapse to this file.",
     )
     opts = parser.parse_args(sys.argv[1:])
 

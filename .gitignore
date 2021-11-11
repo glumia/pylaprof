@@ -1,1 +1,8 @@
+# Python stuff
 __pycache__
+
+# Node stuff
+node_modules
+
+# Serverless framework stuff
+.serverless

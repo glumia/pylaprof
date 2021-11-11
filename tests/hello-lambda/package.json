@@ -1,0 +1,13 @@
+{
+  "name": "glumia-playground",
+  "version": "1.0.0",
+  "description": "dummy dummy",
+  "author": "glumia",
+  "license": "MIT",
+  "devDependencies": {
+    "serverless-python-requirements": "^5.1.1"
+  },
+  "dependencies": {
+    "serverless": "^2.44.0"
+  }
+}
