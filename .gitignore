@@ -9,6 +9,3 @@ node_modules
 
 # Serverless framework stuff
 .serverless
-
-# Sphinx artifacts
-docs/build
