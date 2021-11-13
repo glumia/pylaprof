@@ -7,7 +7,6 @@ license = "MIT"
 readme = "README.md"
 homepage = "https://github.com/glumia/pylaprof"
 repository = "https://github.com/glumia/pylaprof"
-documentation = "https://pylaprof.readthedocs.io"
 keywords = ["profiling", "flamegraph", "lambda", "aws", "serverless"]
 
 [tool.poetry.dependencies]

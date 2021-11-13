@@ -18,9 +18,8 @@
 - Add coverage report generation <--- OK!
 - Packaging (poetry!) <--- OK!
 - Add linters (flake8, black, isort, ~~bandit~~, ~~safety~~) <--- OK!
-- Documentation, documentation, documentation. Show what we can do with pylaprof :)
-- Set-up CI/CD (Github Actions, package upload on PyPI, documentation on
-  readthedocs).
+- Write a decent readme - show what we can do with pylaprof :)
+- Set-up CI/CD (Github Actions, package upload on PyPI).
 
 ## Wave 4 - Let's get production ready
 - Error handling and logging
