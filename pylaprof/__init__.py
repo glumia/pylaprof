@@ -9,7 +9,11 @@ from datetime import datetime, timezone
 from functools import partial, wraps
 from io import StringIO
 
-import boto3
+try:
+    import boto3
+
+except ModuleNotFoundError:
+    pass  # That's fine if you don't want to use S3
 
 
 class Storer:
