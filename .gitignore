@@ -1,6 +1,8 @@
 # Python stuff
 __pycache__
 dist
+.coverage
+htmlcov
 
 # Node stuff
 node_modules

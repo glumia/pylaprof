@@ -18,9 +18,21 @@ flake8 = "^4.0.1"
 black = "^21.10b0"
 isort = "^5.10.1"
 pytest = "^6.2.5"
+coverage = {version = "^6.1.2", extras = ["toml"]}
 
 [tool.poetry.scripts]
 pylaprof-merge = "scripts.merge:main"
+
+[tool.coverage.run]
+branch = true
+command_line = "-m pytest tests"
+source = ["pylaprof"]
+
+[tool.coverage.report]
+fail_under = 100
+show_missing = true
+skip_covered = true
+skip_empty = true
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]

@@ -14,8 +14,8 @@
 - Fix the mess you did in iteration 1 <--- OK!
 
 ## Wave 3 - Time for the boring work
-- Add a test suite 
-- Add coverage report generation
+- Add a test suite (100% coverage)
+- Add coverage report generation <--- OK!
 - Packaging (poetry!) <--- OK!
 - Add linters (flake8, black, isort, ~~bandit~~, ~~safety~~) <--- OK!
 - Documentation, documentation, documentation. Show what we can do with pylaprof :)

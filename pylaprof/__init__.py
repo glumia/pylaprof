@@ -20,7 +20,7 @@ class Storer:
         file
           A file-like object with profiling's data.
         """
-        pass
+        pass  # pragma: no cover
 
 
 class FS(Storer):
@@ -100,7 +100,7 @@ class Sampler:
         frame (frame)
           A frame object (check https://docs.python.org/3/library/inspect.html).
         """
-        pass
+        pass  # pragma: no cover
 
     def dump(self, storer):
         """
@@ -109,7 +109,7 @@ class Sampler:
         storer (Storer)
           Storer to use for data's storage.
         """
-        pass
+        pass  # pragma: no cover
 
 
 class StackCollapse(Sampler):
