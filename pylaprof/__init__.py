@@ -13,7 +13,7 @@ import boto3
 
 
 class Storer:
-    def store(file):
+    def store(self, file):
         """
         Store a profiling report.
 
@@ -183,6 +183,7 @@ class Profile(threading.Thread):
             sampler = StackCollapse()
         self.sampler = sampler
 
+        self._can_run = False
         self._stop_event = threading.Event()
         self.daemon = True
         self.clean_exit = False
@@ -255,7 +256,7 @@ class profile:
         """
         self.period = period
         self.single = single
-        self.min_time = 0
+        self.min_time = min_time
         self.sampler = sampler
         self.storer = storer
 
