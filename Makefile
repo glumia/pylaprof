@@ -5,6 +5,7 @@ clean:	# Remove development artifacts
 	@find . -name '*~' -exec rm -f {} +
 	@find . -name '*.pyc' -exec rm -f {} +
 	@find . -name '*.pyo' -exec rm -f {} +
+	@rm -rf dist
 
 lint:	# Lint code
 	@isort --check .

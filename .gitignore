@@ -1,5 +1,6 @@
 # Python stuff
 __pycache__
+dist
 
 # Node stuff
 node_modules
