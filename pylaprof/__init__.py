@@ -262,7 +262,7 @@ class profile:
 
     def __call__(self, func):
         @wraps(func)
-        def pfunc(*args, **kwargs):
+        def profile_wrapped(*args, **kwargs):
             with Profile(
                 period=self.period,
                 single=self.single,
@@ -272,4 +272,4 @@ class profile:
             ):
                 return func(*args, **kwargs)
 
-        return pfunc
+        return profile_wrapped
