@@ -1,7 +1,7 @@
 [flake8]
+max-line-length = 88
 extend-exclude =
     *node_modules,
     *.serverless,
-extend-ignore = E501, E731
-# E501 line too long
+extend-ignore = E731
 # E731 do not assign a lambda expression, use a def
