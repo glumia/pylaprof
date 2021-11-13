@@ -17,7 +17,7 @@
 - Add a test suite 
 - Add coverage report generation
 - Packaging (poetry!)
-- Add linters (flake8, black, isort, bandit, safety)
+- Add linters (flake8, black, isort, ~~bandit~~, ~~safety~~) <--- OK!
 - Documentation, documentation, documentation. Show what we can do with pylaprof :)
 - Set-up CI/CD (Github Actions, package upload on PyPI, documentation on
   readthedocs).
