@@ -3,5 +3,6 @@ max-line-length = 88
 extend-exclude =
     *node_modules,
     *.serverless,
-extend-ignore = E731
+extend-ignore = E731, W503
 # E731 do not assign a lambda expression, use a def
+# W503 line break before binary operator

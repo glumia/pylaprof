@@ -14,7 +14,7 @@
 - Fix the mess you did in iteration 1 <--- OK!
 
 ## Wave 3 - Time for the boring work
-- Add a test suite (100% coverage)
+- Add a test suite (100% coverage) <--- OK!
 - Add coverage report generation <--- OK!
 - Packaging (poetry!) <--- OK!
 - Add linters (flake8, black, isort, ~~bandit~~, ~~safety~~) <--- OK!

@@ -34,16 +34,16 @@ class FS(Storer):
 
     def __init__(self, path=None):
         """
-        path (str)
-          Where to store the report. Defaults to `pylaprof-{date}.txt` if None.
+        path (func() -> str)
+          Function to use to get report's destination path. Defaults to a generator with
+          format `pylaprof-{date}.txt` if None.
         """
         self.path = path
+        if path is None:
+            self.path = lambda: f"pylaprof-{datetime.now(timezone.utc).isoformat()}.txt"
 
     def store(self, file):
-        path = self.path
-        if path is None:
-            now = datetime.now(timezone.utc).isoformat()
-            path = f"pylaprof-{now}.txt"
+        path = self.path()
         with open(path, "w") as fp:
             shutil.copyfileobj(file, fp)
 
@@ -57,7 +57,7 @@ class S3(Storer):
         self,
         s3_opts=None,
         bucket="pylaprof",
-        prefix="",
+        key=None,
         put_object_opts=None,
     ):
         """
@@ -65,13 +65,11 @@ class S3(Storer):
           Additional options to provide to boto3's `resource` method.
         bucket (string)
           Bucket where to store the report file(s).
-        prefix (string)
-          String to prepend to report files.
+        key (func() -> str)
+          Function to use to get report's object key. Defaults to a generator with
+          format `{randstr}-{date}.txt` if None.
         put_object_opts (dict)
           Additional options to provide to bucket's `put_object` method.
-
-        Report files will be stored as `{prefix}{randstr}-{date}.txt`, with `randstr`
-        being a random string of 8 characters.
         """
         if s3_opts is None:
             s3_opts = {}
@@ -79,16 +77,18 @@ class S3(Storer):
 
         self.bucket = s3.Bucket(bucket)
 
-        self.prefix = prefix
+        self.key = key
+        if key is None:
+            self.key = (
+                lambda: f"{str(uuid.uuid4())[:8]}-{datetime.now(timezone.utc).isoformat()}.txt"  # noqa
+            )
 
         self.put_object_opts = {}
         if put_object_opts is not None:
             self.put_object_opts = put_object_opts
 
     def store(self, file):
-        randstr = str(uuid.uuid4())[:8]
-        now = datetime.now(timezone.utc).isoformat()
-        key = f"{self.prefix}{randstr}-{now}.txt"
+        key = self.key()
         self.bucket.put_object(Body=file.read(), Key=key, **self.put_object_opts)
 
 
@@ -151,7 +151,7 @@ class Profiler(threading.Thread):
         single (bool)
           Profile only the thread which created this instance.
         min_time (int)
-          Store profiling data only if execution lasts more than this amount of time.
+          Store profiling data only if execution lasts more than this amount of seconds.
         sampler (Sampler)
           Sampler to use to process stack frames.
           Defaults to an instance of `StackCollapse` if None.
@@ -183,7 +183,7 @@ class Profiler(threading.Thread):
             sampler = StackCollapse()
         self.sampler = sampler
 
-        self._can_run = False
+        self._can_run = False  # Variable to control profiler's main loop.
         self._stop_event = threading.Event()
         self.daemon = True
         self.clean_exit = False
@@ -198,9 +198,8 @@ class Profiler(threading.Thread):
         Request thread to stop.
         Does not wait for actual termination (use join() method).
         """
-        if self.is_alive():
-            self._can_run = False
-            self._stop_event.set()
+        self._can_run = False
+        self._stop_event.set()
 
     def __enter__(self):
         self.start()
