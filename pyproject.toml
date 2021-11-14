@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "pylaprof"
-version = "0.3.1"
+version = "0.3.3"
 description = "A Python sampling profiler for AWS Lambda functions (and not only)."
 authors = ["Giuseppe Lumia <g.lumia@outlook.com>"]
 license = "MIT"
@@ -8,6 +8,9 @@ readme = "README.md"
 homepage = "https://github.com/glumia/pylaprof"
 repository = "https://github.com/glumia/pylaprof"
 keywords = ["profiling", "flamegraph", "lambda", "aws", "serverless"]
+classifiers = [
+    "Development Status :: 3 - Alpha"
+]
 
 [tool.poetry.dependencies]
 python = "^3.7"

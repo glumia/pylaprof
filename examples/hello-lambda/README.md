@@ -1,1 +1,1 @@
-Dummy lambda function to check that the profiler works.
+A minimal lambda function to test pylaprof.

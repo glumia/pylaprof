@@ -1,7 +1,26 @@
-Not yet a real test suite, just a bunch of tools I use for testing and development.
+Just a bunch of examples of how you can use pylaprof.
 
-Usually I launch slowserver.go (`go run slowserver.go`) and then `launcher.py`
-too see if everything work as I expect.
+### hello-lambda
+This project shows how you can use pylaprof as a decorator for your lambda
+function (check `hello-lambda/handler.py`).
 
-I also compare results to those of `py-spy` (https://github.com/benfred/py-spy)
-to see if they make sense.
+
+### launcher
+This "project" shows how you can use pylaprof as a context manager for
+any Python function (check `launcher.py`).
+
+To reproduce `flame.svg`, launch the *slowserver* API service:
+```
+~/pylaprof/examples$ go run slowserver.go
+```
+
+Run code of `handler.py` and generate a stackcollapse report in the current directory:
+```
+~/pylaprof/examples$ ./launcher --fs
+```
+
+Finally use Brendan Gregg's [flamegraph generator](
+https://github.com/brendangregg/flamegraph):
+```
+~/pylaprof/examples$ ../../FlameGraph/flamegraph.pl pylaprof-2021-11-14T21\:13\:30.548307+00\:00.txt > flame.svg
+```

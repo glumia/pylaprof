@@ -2,7 +2,7 @@ import time
 
 from pylaprof import S3, profile
 
-storer = S3(create_bucket=False)
+storer = S3()
 
 
 @profile(storer=storer)

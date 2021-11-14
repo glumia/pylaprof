@@ -13,7 +13,7 @@ def handler(context, event):
 
 
 def sleepy_task():
-    time.sleep(3)  # ...
+    time.sleep(3)
 
 
 def cpu_intens_task():
