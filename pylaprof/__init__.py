@@ -143,7 +143,7 @@ class StackCollapse(Sampler):
         storer.store(file)
 
 
-class Profile(threading.Thread):
+class Profiler(threading.Thread):
     def __init__(self, period=0.01, single=True, min_time=0, sampler=None, storer=None):
         """
         period (float)
@@ -247,7 +247,7 @@ class Profile(threading.Thread):
 
 class profile:
     """
-    Allows to use `Profile` as a decorator:
+    Allows to use `Profiler` as a decorator:
 
     @profile(period=0.01, single=True)
     def slow_function():
@@ -256,7 +256,7 @@ class profile:
 
     def __init__(self, period=0.01, single=True, min_time=0, sampler=None, storer=None):
         """
-        Check `Profile`.
+        Check `Profiler`.
         """
         self.period = period
         self.single = single
@@ -266,8 +266,8 @@ class profile:
 
     def __call__(self, func):
         @wraps(func)
-        def profile_wrapped(*args, **kwargs):
-            with Profile(
+        def profiler_wrapped(*args, **kwargs):
+            with Profiler(
                 period=self.period,
                 single=self.single,
                 min_time=self.min_time,
@@ -276,4 +276,4 @@ class profile:
             ):
                 return func(*args, **kwargs)
 
-        return profile_wrapped
+        return profiler_wrapped

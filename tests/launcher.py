@@ -4,7 +4,7 @@ import sys
 
 from handler import handler
 
-from pylaprof import FS, S3, Profile
+from pylaprof import FS, S3, Profiler
 
 
 def main():
@@ -30,5 +30,5 @@ if __name__ == "__main__":
         print("wat")
         exit(1)
 
-    with Profile(period=0.01, storer=storer):
+    with Profiler(period=0.01, storer=storer):
         main()
