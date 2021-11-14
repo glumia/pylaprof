@@ -12,7 +12,7 @@ from io import StringIO
 try:
     import boto3
 
-except ModuleNotFoundError:
+except ModuleNotFoundError:  # pragma: nocover
     pass  # That's fine if you don't want to use S3
 
 
@@ -55,44 +55,40 @@ class S3(Storer):
 
     def __init__(
         self,
+        s3_opts=None,
         bucket="pylaprof",
-        bucket_opts=None,
-        create_bucket=True,
-        prefix=None,
+        prefix="",
         put_object_opts=None,
     ):
         """
+        s3_opts (dict)
+          Additional options to provide to boto3's `resource` method.
         bucket (string)
-          Bucket where to store the report file.
-        bucket_opts (dict)
-          Additional options to provide to boto's S3 `create_bucket` method.
-        create_bucket (bool)
-          Create bucket if it doesn't already exists.
+          Bucket where to store the report file(s).
         prefix (string)
-          String to prepend to report files. Defaults to a random string of 8
-          characters if None.
+          String to prepend to report files.
         put_object_opts (dict)
           Additional options to provide to bucket's `put_object` method.
-        """
-        s3 = boto3.resource("s3")
 
-        if bucket_opts is None:
-            bucket_opts = {}
+        Report files will be stored as `{prefix}{randstr}-{date}.txt`, with `randstr`
+        being a random string of 8 characters.
+        """
+        if s3_opts is None:
+            s3_opts = {}
+        s3 = boto3.resource("s3", **s3_opts)
 
         self.bucket = s3.Bucket(bucket)
-        if create_bucket:
-            self.bucket = s3.create_bucket(Bucket=bucket, **bucket_opts)
 
-        self.prefix = lambda: str(uuid.uuid4())[:8]
-        if prefix is not None:
-            self.prefix = lambda: prefix
+        self.prefix = prefix
 
-        self.put_object_opts = put_object_opts if put_object_opts is not None else {}
+        self.put_object_opts = {}
+        if put_object_opts is not None:
+            self.put_object_opts = put_object_opts
 
     def store(self, file):
-        prefix = self.prefix()
+        randstr = str(uuid.uuid4())[:8]
         now = datetime.now(timezone.utc).isoformat()
-        key = f"{prefix}-{now}.txt"
+        key = f"{self.prefix}{randstr}-{now}.txt"
         self.bucket.put_object(Body=file.read(), Key=key, **self.put_object_opts)
 
 
