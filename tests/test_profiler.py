@@ -190,6 +190,37 @@ def test_profiler_run_min_time(monkeypatch):
     profiler.sampler.dump.assert_called()  # ... and stored them.
 
 
+def test_profiler_run_exception(monkeypatch):
+    """Check that in case of exception we don't let it bubble up and log it."""
+    logger = Mock()
+    monkeypatch.setattr("pylaprof.logger", logger)
+    sampler = Mock()
+    sampler.sample.side_effect = KeyError
+
+    # We patch Profiler's run method to see if it raises an exception.
+    run = Profiler.run
+    raised_exc = []
+
+    def patched_run(self):
+        try:
+            run(self)
+        except Exception:
+            raised_exc.append(True)
+
+    monkeypatch.setattr(Profiler, "run", patched_run)
+
+    profiler = Profiler(sampler=sampler, storer=object())
+    profiler.start()
+    profiler.stop()
+    profiler.join()
+
+    sampler.sample.assert_called()
+    assert not raised_exc
+    logger.exception.assert_called()
+    assert profiler.clean_exit is False  # Allows users to understand that profiler's
+    # execution failed.
+
+
 def test_profiler_decorator(monkeypatch):
     period = 0.42
     single = False

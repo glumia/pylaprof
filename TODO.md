@@ -23,6 +23,6 @@
 - Set-up CI/CD (Github Actions, package upload on PyPI).
 
 ## Wave 4 - Let's get production ready
-- Error handling and logging
+- Error handling and logging <--- OK!
 - Tight loop optimization (maybe use Cython for that?)
 - Measure and document performance impact

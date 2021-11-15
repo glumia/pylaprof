@@ -1,3 +1,4 @@
+import logging
 import os
 import shutil
 import sys
@@ -14,6 +15,10 @@ try:
 
 except ModuleNotFoundError:  # pragma: nocover
     pass  # That's fine if you don't want to use S3
+
+
+logger = logging.getLogger(__name__)
+logger.addHandler(logging.NullHandler())
 
 
 class Storer:
@@ -210,34 +215,37 @@ class Profiler(threading.Thread):
         self.join()
 
     def run(self):
-        if os.getenv("PYLAPROF_DISABLE"):
-            self._stop_event.clear()
+        try:
+            if os.getenv("PYLAPROF_DISABLE"):
+                self._stop_event.clear()
+                self.clean_exit = True
+                return
+
+            # The `while self._can_run` block below is a tight loop, we do those
+            # assignments to reduce indirection when it runs.
+            test = self._test
+            if test is None:
+                test = lambda x, ident=threading.current_thread().ident: ident != x
+            stop_event = self._stop_event
+            wait = partial(stop_event.wait, self.period)
+            current_frames = sys._current_frames
+            sample = self.sampler.sample
+
+            start = time.time()
+            while self._can_run:
+                for ident, frame in current_frames().items():
+                    if test(ident):
+                        sample(frame)
+                wait()
+            end = time.time()
+
+            if end - start >= self.min_time:
+                self.sampler.dump(self.storer)
+
+            stop_event.clear()
             self.clean_exit = True
-            return
-
-        # The `while self._can_run` block below is a tight loop, we do those assignments
-        # to reduce indirection when it runs.
-        test = self._test
-        if test is None:
-            test = lambda x, ident=threading.current_thread().ident: ident != x
-        stop_event = self._stop_event
-        wait = partial(stop_event.wait, self.period)
-        current_frames = sys._current_frames
-        sample = self.sampler.sample
-
-        start = time.time()
-        while self._can_run:
-            for ident, frame in current_frames().items():
-                if test(ident):
-                    sample(frame)
-            wait()
-        end = time.time()
-
-        if end - start >= self.min_time:
-            self.sampler.dump(self.storer)
-
-        stop_event.clear()
-        self.clean_exit = True
+        except Exception:
+            logger.exception("Uncaught exception")
 
 
 class profile:
