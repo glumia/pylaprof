@@ -20,7 +20,7 @@
 - Add linters (flake8, black, isort, ~~bandit~~, ~~safety~~) <--- OK!
 - Add integration tests <--- OK!
 - Write a decent readme - show what we can do with pylaprof :)
-- Set-up CI/CD (Github Actions, package upload on PyPI).
+- Set-up CI/CD (Github Actions, package upload on PyPI). <--- OK!
 
 ## Wave 4 - Let's get production ready
 - Error handling and logging <--- OK!
