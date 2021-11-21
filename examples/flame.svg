@@ -421,148 +421,132 @@
 <text id="matched" x="1090.00" y="309" > </text>
 <g id="frames">
 <g >
-<title>_load_unlocked (&lt;frozen importlib._bootstrap&gt;:680) (1 samples, 0.13%)</title><rect x="11.6" y="85" width="1.6" height="15.0" fill="rgb(227,191,53)" rx="2" ry="2" />
-<text  x="14.58" y="95.5" ></text>
+<title>stream (/usr/lib/python3.9/site-packages/urllib3/response.py:579) (291 samples, 38.59%)</title><rect x="734.6" y="101" width="455.4" height="15.0" fill="rgb(210,66,29)" rx="2" ry="2" />
+<text  x="737.59" y="111.5" >stream (/usr/lib/python3.9/site-packages/urllib3/response.py:5..</text>
 </g>
 <g >
-<title>_find_and_load_unlocked (&lt;frozen importlib._bootstrap&gt;:986) (1 samples, 0.13%)</title><rect x="11.6" y="101" width="1.6" height="15.0" fill="rgb(228,97,54)" rx="2" ry="2" />
-<text  x="14.58" y="111.5" ></text>
+<title>&lt;module&gt; (/home/gius/pylaprof/examples/./launcher.py:34) (753 samples, 99.87%)</title><rect x="11.6" y="261" width="1178.4" height="15.0" fill="rgb(214,22,25)" rx="2" ry="2" />
+<text  x="14.56" y="271.5" >&lt;module&gt; (/home/gius/pylaprof/examples/./launcher.py:34)</text>
 </g>
 <g >
-<title>all (748 samples, 100%)</title><rect x="10.0" y="277" width="1180.0" height="15.0" fill="rgb(242,166,23)" rx="2" ry="2" />
-<text  x="13.00" y="287.5" ></text>
-</g>
-<g >
-<title>get_netrc_auth (/home/gius/.local/lib/python3.9/site-packages/requests/utils.py:179) (1 samples, 0.13%)</title><rect x="11.6" y="133" width="1.6" height="15.0" fill="rgb(241,195,28)" rx="2" ry="2" />
-<text  x="14.58" y="143.5" ></text>
-</g>
-<g >
-<title>wait (/usr/lib/python3.9/threading.py:312) (1 samples, 0.13%)</title><rect x="10.0" y="181" width="1.6" height="15.0" fill="rgb(217,81,48)" rx="2" ry="2" />
+<title>wait (/usr/lib/python3.9/threading.py:312) (1 samples, 0.13%)</title><rect x="10.0" y="181" width="1.6" height="15.0" fill="rgb(249,228,16)" rx="2" ry="2" />
 <text  x="13.00" y="191.5" ></text>
 </g>
 <g >
-<title>wait (/usr/lib/python3.9/threading.py:574) (1 samples, 0.13%)</title><rect x="10.0" y="197" width="1.6" height="15.0" fill="rgb(209,27,32)" rx="2" ry="2" />
+<title>main (/home/gius/pylaprof/examples/./launcher.py:15) (753 samples, 99.87%)</title><rect x="11.6" y="245" width="1178.4" height="15.0" fill="rgb(221,62,3)" rx="2" ry="2" />
+<text  x="14.56" y="255.5" >main (/home/gius/pylaprof/examples/./launcher.py:15)</text>
+</g>
+<g >
+<title>wait (/usr/lib/python3.9/threading.py:574) (1 samples, 0.13%)</title><rect x="10.0" y="197" width="1.6" height="15.0" fill="rgb(236,89,28)" rx="2" ry="2" />
 <text  x="13.00" y="207.5" ></text>
 </g>
 <g >
-<title>send (/home/gius/.local/lib/python3.9/site-packages/requests/sessions.py:655) (291 samples, 38.90%)</title><rect x="13.2" y="149" width="459.0" height="15.0" fill="rgb(243,156,47)" rx="2" ry="2" />
-<text  x="16.16" y="159.5" >send (/home/gius/.local/lib/python3.9/site-packages/requests/s..</text>
+<title>generate (/home/gius/.local/lib/python3.9/site-packages/requests/models.py:753) (291 samples, 38.59%)</title><rect x="734.6" y="117" width="455.4" height="15.0" fill="rgb(226,69,50)" rx="2" ry="2" />
+<text  x="737.59" y="127.5" >generate (/home/gius/.local/lib/python3.9/site-packages/reques..</text>
 </g>
 <g >
-<title>cpu_intens_task (/home/gius/pylaprof/examples/handler.py:22) (124 samples, 16.58%)</title><rect x="994.4" y="213" width="195.6" height="15.0" fill="rgb(206,63,39)" rx="2" ry="2" />
-<text  x="997.39" y="223.5" >cpu_intens_task (/home/gi..</text>
+<title>read (/usr/lib/python3.9/site-packages/urllib3/response.py:522) (291 samples, 38.59%)</title><rect x="734.6" y="85" width="455.4" height="15.0" fill="rgb(236,179,36)" rx="2" ry="2" />
+<text  x="737.59" y="95.5" >read (/usr/lib/python3.9/site-packages/urllib3/response.py:522)</text>
 </g>
 <g >
-<title>getresponse (/usr/lib/python3.9/http/client.py:1371) (291 samples, 38.90%)</title><rect x="13.2" y="85" width="459.0" height="15.0" fill="rgb(250,142,23)" rx="2" ry="2" />
-<text  x="16.16" y="95.5" >getresponse (/usr/lib/python3.9/http/client.py:1371)</text>
+<title>handler (/home/gius/pylaprof/examples/handler.py:9) (291 samples, 38.59%)</title><rect x="734.6" y="229" width="455.4" height="15.0" fill="rgb(219,114,12)" rx="2" ry="2" />
+<text  x="737.59" y="239.5" >handler (/home/gius/pylaprof/examples/handler.py:9)</text>
 </g>
 <g >
-<title>io_task (/home/gius/pylaprof/examples/handler.py:26) (292 samples, 39.04%)</title><rect x="11.6" y="213" width="460.6" height="15.0" fill="rgb(228,227,42)" rx="2" ry="2" />
-<text  x="14.58" y="223.5" >io_task (/home/gius/pylaprof/examples/handler.py:26)</text>
+<title>&lt;lambda&gt; (/home/gius/pylaprof/examples/handler.py:19) (27 samples, 3.58%)</title><rect x="560.9" y="197" width="42.2" height="15.0" fill="rgb(234,95,10)" rx="2" ry="2" />
+<text  x="563.88" y="207.5" >&lt;la..</text>
 </g>
 <g >
-<title>start (/usr/lib/python3.9/threading.py:897) (1 samples, 0.13%)</title><rect x="10.0" y="213" width="1.6" height="15.0" fill="rgb(219,222,32)" rx="2" ry="2" />
-<text  x="13.00" y="223.5" ></text>
+<title>cpu_intensive_task (/home/gius/pylaprof/examples/handler.py:29) (137 samples, 18.17%)</title><rect x="520.2" y="213" width="214.4" height="15.0" fill="rgb(238,87,47)" rx="2" ry="2" />
+<text  x="523.19" y="223.5" >cpu_intensive_task (/home/gi..</text>
 </g>
 <g >
-<title>_find_and_load (&lt;frozen importlib._bootstrap&gt;:1007) (1 samples, 0.13%)</title><rect x="11.6" y="117" width="1.6" height="15.0" fill="rgb(233,115,7)" rx="2" ry="2" />
-<text  x="14.58" y="127.5" ></text>
+<title>read (/usr/lib/python3.9/http/client.py:462) (291 samples, 38.59%)</title><rect x="734.6" y="69" width="455.4" height="15.0" fill="rgb(240,155,10)" rx="2" ry="2" />
+<text  x="737.59" y="79.5" >read (/usr/lib/python3.9/http/client.py:462)</text>
 </g>
 <g >
-<title>readinto (/usr/lib/python3.9/socket.py:704) (291 samples, 38.90%)</title><rect x="13.2" y="37" width="459.0" height="15.0" fill="rgb(234,12,4)" rx="2" ry="2" />
-<text  x="16.16" y="47.5" >readinto (/usr/lib/python3.9/socket.py:704)</text>
+<title>&lt;lambda&gt; (/home/gius/pylaprof/examples/handler.py:21) (26 samples, 3.45%)</title><rect x="653.2" y="197" width="40.7" height="15.0" fill="rgb(219,9,28)" rx="2" ry="2" />
+<text  x="656.21" y="207.5" >&lt;la..</text>
 </g>
 <g >
-<title>__enter__ (/home/gius/pylaprof/examples/pylaprof/__init__.py:205) (1 samples, 0.13%)</title><rect x="10.0" y="245" width="1.6" height="15.0" fill="rgb(230,58,34)" rx="2" ry="2" />
-<text  x="13.00" y="255.5" ></text>
+<title>readinto (/usr/lib/python3.9/socket.py:704) (291 samples, 38.59%)</title><rect x="734.6" y="37" width="455.4" height="15.0" fill="rgb(227,224,34)" rx="2" ry="2" />
+<text  x="737.59" y="47.5" >readinto (/usr/lib/python3.9/socket.py:704)</text>
 </g>
 <g >
-<title>exec_module (&lt;frozen importlib._bootstrap_external&gt;:846) (1 samples, 0.13%)</title><rect x="11.6" y="69" width="1.6" height="15.0" fill="rgb(220,136,43)" rx="2" ry="2" />
-<text  x="14.58" y="79.5" ></text>
+<title>handler (/home/gius/pylaprof/examples/handler.py:8) (171 samples, 22.68%)</title><rect x="467.0" y="229" width="267.6" height="15.0" fill="rgb(227,65,7)" rx="2" ry="2" />
+<text  x="469.98" y="239.5" >handler (/home/gius/pylaprof/exampl..</text>
 </g>
 <g >
-<title>handler (/home/gius/pylaprof/examples/handler.py:10) (292 samples, 39.04%)</title><rect x="11.6" y="229" width="460.6" height="15.0" fill="rgb(252,155,34)" rx="2" ry="2" />
-<text  x="14.58" y="239.5" >handler (/home/gius/pylaprof/examples/handler.py:10)</text>
-</g>
-<g >
-<title>urlopen (/usr/lib/python3.9/site-packages/urllib3/connectionpool.py:699) (291 samples, 38.90%)</title><rect x="13.2" y="117" width="459.0" height="15.0" fill="rgb(213,26,14)" rx="2" ry="2" />
-<text  x="16.16" y="127.5" >urlopen (/usr/lib/python3.9/site-packages/urllib3/connectionpo..</text>
-</g>
-<g >
-<title>sleepy_task (/home/gius/pylaprof/examples/handler.py:16) (291 samples, 38.90%)</title><rect x="472.2" y="213" width="459.1" height="15.0" fill="rgb(243,39,26)" rx="2" ry="2" />
-<text  x="475.22" y="223.5" >sleepy_task (/home/gius/pylaprof/examples/handler.py:16)</text>
-</g>
-<g >
-<title>cpu_intens_task (/home/gius/pylaprof/examples/handler.py:21) (40 samples, 5.35%)</title><rect x="931.3" y="213" width="63.1" height="15.0" fill="rgb(207,188,25)" rx="2" ry="2" />
-<text  x="934.28" y="223.5" >cpu_in..</text>
-</g>
-<g >
-<title>start (/home/gius/pylaprof/examples/pylaprof/__init__.py:194) (1 samples, 0.13%)</title><rect x="10.0" y="229" width="1.6" height="15.0" fill="rgb(247,131,22)" rx="2" ry="2" />
+<title>start (/home/gius/pylaprof/examples/pylaprof/__init__.py:199) (1 samples, 0.13%)</title><rect x="10.0" y="229" width="1.6" height="15.0" fill="rgb(216,124,36)" rx="2" ry="2" />
 <text  x="13.00" y="239.5" ></text>
 </g>
 <g >
-<title>request (/home/gius/.local/lib/python3.9/site-packages/requests/sessions.py:542) (291 samples, 38.90%)</title><rect x="13.2" y="165" width="459.0" height="15.0" fill="rgb(235,157,38)" rx="2" ry="2" />
-<text  x="16.16" y="175.5" >request (/home/gius/.local/lib/python3.9/site-packages/request..</text>
+<title>send (/home/gius/.local/lib/python3.9/site-packages/requests/sessions.py:697) (291 samples, 38.59%)</title><rect x="734.6" y="149" width="455.4" height="15.0" fill="rgb(208,12,16)" rx="2" ry="2" />
+<text  x="737.59" y="159.5" >send (/home/gius/.local/lib/python3.9/site-packages/requests/s..</text>
 </g>
 <g >
-<title>begin (/usr/lib/python3.9/http/client.py:319) (291 samples, 38.90%)</title><rect x="13.2" y="69" width="459.0" height="15.0" fill="rgb(235,207,15)" rx="2" ry="2" />
-<text  x="16.16" y="79.5" >begin (/usr/lib/python3.9/http/client.py:319)</text>
+<title>start (/usr/lib/python3.9/threading.py:897) (1 samples, 0.13%)</title><rect x="10.0" y="213" width="1.6" height="15.0" fill="rgb(237,82,1)" rx="2" ry="2" />
+<text  x="13.00" y="223.5" ></text>
 </g>
 <g >
-<title>get_data (&lt;frozen importlib._bootstrap_external&gt;:1039) (1 samples, 0.13%)</title><rect x="11.6" y="37" width="1.6" height="15.0" fill="rgb(206,175,34)" rx="2" ry="2" />
-<text  x="14.58" y="47.5" ></text>
+<title>handler (/home/gius/pylaprof/examples/handler.py:7) (291 samples, 38.59%)</title><rect x="11.6" y="229" width="455.4" height="15.0" fill="rgb(252,118,46)" rx="2" ry="2" />
+<text  x="14.56" y="239.5" >handler (/home/gius/pylaprof/examples/handler.py:7)</text>
 </g>
 <g >
-<title>get (/home/gius/.local/lib/python3.9/site-packages/requests/api.py:76) (292 samples, 39.04%)</title><rect x="11.6" y="197" width="460.6" height="15.0" fill="rgb(207,65,15)" rx="2" ry="2" />
-<text  x="14.58" y="207.5" >get (/home/gius/.local/lib/python3.9/site-packages/requests/api..</text>
+<title>io_task (/home/gius/pylaprof/examples/handler.py:33) (291 samples, 38.59%)</title><rect x="734.6" y="213" width="455.4" height="15.0" fill="rgb(246,61,17)" rx="2" ry="2" />
+<text  x="737.59" y="223.5" >io_task (/home/gius/pylaprof/examples/handler.py:33)</text>
 </g>
 <g >
-<title>handler (/home/gius/pylaprof/examples/handler.py:9) (164 samples, 21.93%)</title><rect x="931.3" y="229" width="258.7" height="15.0" fill="rgb(241,59,7)" rx="2" ry="2" />
-<text  x="934.28" y="239.5" >handler (/home/gius/pylaprof/examp..</text>
+<title>request (/home/gius/.local/lib/python3.9/site-packages/requests/api.py:61) (291 samples, 38.59%)</title><rect x="734.6" y="181" width="455.4" height="15.0" fill="rgb(221,222,41)" rx="2" ry="2" />
+<text  x="737.59" y="191.5" >request (/home/gius/.local/lib/python3.9/site-packages/request..</text>
 </g>
 <g >
-<title>send (/home/gius/.local/lib/python3.9/site-packages/requests/adapters.py:439) (291 samples, 38.90%)</title><rect x="13.2" y="133" width="459.0" height="15.0" fill="rgb(213,18,42)" rx="2" ry="2" />
-<text  x="16.16" y="143.5" >send (/home/gius/.local/lib/python3.9/site-packages/requests/a..</text>
+<title>cpu_intensive_task (/home/gius/pylaprof/examples/handler.py:28) (30 samples, 3.98%)</title><rect x="473.2" y="213" width="47.0" height="15.0" fill="rgb(225,33,27)" rx="2" ry="2" />
+<text  x="476.24" y="223.5" >cpu_..</text>
 </g>
 <g >
-<title>_make_request (/usr/lib/python3.9/site-packages/urllib3/connectionpool.py:440) (291 samples, 38.90%)</title><rect x="13.2" y="101" width="459.0" height="15.0" fill="rgb(219,132,23)" rx="2" ry="2" />
-<text  x="16.16" y="111.5" >_make_request (/usr/lib/python3.9/site-packages/urllib3/connec..</text>
+<title>sleepy_task (/home/gius/pylaprof/examples/handler.py:14) (291 samples, 38.59%)</title><rect x="11.6" y="213" width="455.4" height="15.0" fill="rgb(230,12,3)" rx="2" ry="2" />
+<text  x="14.56" y="223.5" >sleepy_task (/home/gius/pylaprof/examples/handler.py:14)</text>
 </g>
 <g >
-<title>request (/home/gius/.local/lib/python3.9/site-packages/requests/sessions.py:528) (1 samples, 0.13%)</title><rect x="11.6" y="165" width="1.6" height="15.0" fill="rgb(212,70,35)" rx="2" ry="2" />
-<text  x="14.58" y="175.5" ></text>
+<title>&lt;lambda&gt; (/home/gius/pylaprof/examples/handler.py:22) (26 samples, 3.45%)</title><rect x="693.9" y="197" width="40.7" height="15.0" fill="rgb(245,166,43)" rx="2" ry="2" />
+<text  x="696.90" y="207.5" >&lt;la..</text>
 </g>
 <g >
-<title>&lt;module&gt; (/home/gius/pylaprof/examples/./launcher.py:34) (747 samples, 99.87%)</title><rect x="11.6" y="261" width="1178.4" height="15.0" fill="rgb(220,33,47)" rx="2" ry="2" />
-<text  x="14.58" y="271.5" >&lt;module&gt; (/home/gius/pylaprof/examples/./launcher.py:34)</text>
-</g>
-<g >
-<title>_read_status (/usr/lib/python3.9/http/client.py:280) (291 samples, 38.90%)</title><rect x="13.2" y="53" width="459.0" height="15.0" fill="rgb(205,180,54)" rx="2" ry="2" />
-<text  x="16.16" y="63.5" >_read_status (/usr/lib/python3.9/http/client.py:280)</text>
-</g>
-<g >
-<title>prepare_request (/home/gius/.local/lib/python3.9/site-packages/requests/sessions.py:453) (1 samples, 0.13%)</title><rect x="11.6" y="149" width="1.6" height="15.0" fill="rgb(234,70,24)" rx="2" ry="2" />
-<text  x="14.58" y="159.5" ></text>
-</g>
-<g >
-<title>handler (/home/gius/pylaprof/examples/handler.py:8) (291 samples, 38.90%)</title><rect x="472.2" y="229" width="459.1" height="15.0" fill="rgb(236,198,40)" rx="2" ry="2" />
-<text  x="475.22" y="239.5" >handler (/home/gius/pylaprof/examples/handler.py:8)</text>
-</g>
-<g >
-<title>&lt;module&gt; (/home/gius/pylaprof/examples/./launcher.py:33) (1 samples, 0.13%)</title><rect x="10.0" y="261" width="1.6" height="15.0" fill="rgb(224,12,49)" rx="2" ry="2" />
+<title>&lt;module&gt; (/home/gius/pylaprof/examples/./launcher.py:33) (1 samples, 0.13%)</title><rect x="10.0" y="261" width="1.6" height="15.0" fill="rgb(227,171,47)" rx="2" ry="2" />
 <text  x="13.00" y="271.5" ></text>
 </g>
 <g >
-<title>request (/home/gius/.local/lib/python3.9/site-packages/requests/api.py:61) (292 samples, 39.04%)</title><rect x="11.6" y="181" width="460.6" height="15.0" fill="rgb(227,183,34)" rx="2" ry="2" />
-<text  x="14.58" y="191.5" >request (/home/gius/.local/lib/python3.9/site-packages/requests..</text>
+<title>all (754 samples, 100%)</title><rect x="10.0" y="277" width="1180.0" height="15.0" fill="rgb(219,182,6)" rx="2" ry="2" />
+<text  x="13.00" y="287.5" ></text>
 </g>
 <g >
-<title>main (/home/gius/pylaprof/examples/./launcher.py:15) (747 samples, 99.87%)</title><rect x="11.6" y="245" width="1178.4" height="15.0" fill="rgb(227,34,23)" rx="2" ry="2" />
-<text  x="14.58" y="255.5" >main (/home/gius/pylaprof/examples/./launcher.py:15)</text>
+<title>request (/home/gius/.local/lib/python3.9/site-packages/requests/sessions.py:542) (291 samples, 38.59%)</title><rect x="734.6" y="165" width="455.4" height="15.0" fill="rgb(208,65,15)" rx="2" ry="2" />
+<text  x="737.59" y="175.5" >request (/home/gius/.local/lib/python3.9/site-packages/request..</text>
 </g>
 <g >
-<title>get_code (&lt;frozen importlib._bootstrap_external&gt;:941) (1 samples, 0.13%)</title><rect x="11.6" y="53" width="1.6" height="15.0" fill="rgb(227,205,39)" rx="2" ry="2" />
-<text  x="14.58" y="63.5" ></text>
+<title>content (/home/gius/.local/lib/python3.9/site-packages/requests/models.py:831) (291 samples, 38.59%)</title><rect x="734.6" y="133" width="455.4" height="15.0" fill="rgb(239,56,28)" rx="2" ry="2" />
+<text  x="737.59" y="143.5" >content (/home/gius/.local/lib/python3.9/site-packages/request..</text>
+</g>
+<g >
+<title>readinto (/usr/lib/python3.9/http/client.py:506) (291 samples, 38.59%)</title><rect x="734.6" y="53" width="455.4" height="15.0" fill="rgb(218,106,38)" rx="2" ry="2" />
+<text  x="737.59" y="63.5" >readinto (/usr/lib/python3.9/http/client.py:506)</text>
+</g>
+<g >
+<title>cpu_intensive_task (/home/gius/pylaprof/examples/handler.py:27) (4 samples, 0.53%)</title><rect x="467.0" y="213" width="6.2" height="15.0" fill="rgb(207,203,15)" rx="2" ry="2" />
+<text  x="469.98" y="223.5" ></text>
+</g>
+<g >
+<title>get (/home/gius/.local/lib/python3.9/site-packages/requests/api.py:76) (291 samples, 38.59%)</title><rect x="734.6" y="197" width="455.4" height="15.0" fill="rgb(243,22,2)" rx="2" ry="2" />
+<text  x="737.59" y="207.5" >get (/home/gius/.local/lib/python3.9/site-packages/requests/ap..</text>
+</g>
+<g >
+<title>&lt;lambda&gt; (/home/gius/pylaprof/examples/handler.py:20) (32 samples, 4.24%)</title><rect x="603.1" y="197" width="50.1" height="15.0" fill="rgb(225,40,53)" rx="2" ry="2" />
+<text  x="606.13" y="207.5" >&lt;lamb..</text>
+</g>
+<g >
+<title>__enter__ (/home/gius/pylaprof/examples/pylaprof/__init__.py:210) (1 samples, 0.13%)</title><rect x="10.0" y="245" width="1.6" height="15.0" fill="rgb(254,176,46)" rx="2" ry="2" />
+<text  x="13.00" y="255.5" ></text>
 </g>
 </g>
 </svg>

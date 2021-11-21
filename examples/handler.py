@@ -4,23 +4,30 @@ import requests
 
 
 def handler(context, event):
-    print("handler: received context", context, "and event", event)
     sleepy_task()
-    cpu_intens_task()
+    cpu_intensive_task()
     io_task()
-    print("handler: done")
     return {"some processed": "data"}
 
 
 def sleepy_task():
-    time.sleep(3)
+    time.sleep(3)  # ~3 seconds (captain obvious)
 
 
-def cpu_intens_task():
-    i = 0
-    while i < 10 ** 8:  # Will take ~3 seconds (at least on my laptop)
-        i += 1
+def cpu_intensive_task():
+    operation = [
+        lambda n, x: n.__add__(x),
+        lambda n, x: n.__sub__(x),
+        lambda n, x: n.__mul__(x),
+        lambda n, x: n.__truediv__(x),
+    ]
+    iterations = 17 ** 6  # ~3 seconds on a i7-1165G7 @ 2.80GHz
+
+    n = 42
+    for i in range(iterations):
+        op = operation[i % 4]
+        n = op(n, i)
 
 
 def io_task():
-    requests.get("http://localhost:8080")  # Will take ~3 seconds
+    requests.get("http://localhost:8000")  # ~3 seconds (check server.py)
