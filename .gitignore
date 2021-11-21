@@ -4,6 +4,9 @@ dist
 .coverage
 htmlcov
 
+# Benchmark stuff
+frames.dump
+
 # Node stuff
 node_modules
 

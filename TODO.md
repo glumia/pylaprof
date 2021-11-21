@@ -20,12 +20,15 @@
 - Add linters (flake8, black, isort, ~~bandit~~, ~~safety~~) <--- OK!
 - Add integration tests <--- OK!
 - Write a decent readme - show what we can do with pylaprof :)
+  (note, add info about the performance impact and other considerations to run
+  pylaprof in production, e.g. time required for report's upload/storage)
 - Set-up CI/CD (Github Actions, package upload on PyPI). <--- OK!
 
 ## Wave 4 - Let's get production ready
 - Error handling and logging <--- OK!
-- Tight loop optimization (maybe use Cython for that?)
-- Measure and document performance impact
+- ~~Tight loop optimization (maybe use Cython for that?)~~ <--- OK! (not
+  necessary)
+- Measure performance impact <--- OK!
 
 ## Wave 5 - Consolidation
 - Gather feedbacks and eventually introduce breaking changes
