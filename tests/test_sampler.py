@@ -84,7 +84,7 @@ def test_stack_collapse_dump():
     exp_file = (
         "three (some_path/some_module.py:42);one (some_path/some_module.py:12) 4\n"
         + "three_v2 (some_path/some_module.py:82);some_func (some_path/some_other_module.py:11) 2\n"  # noqa
-    )
+    ).encode()
     storer = Mock()
 
     stack_collapse.dump(storer=storer)

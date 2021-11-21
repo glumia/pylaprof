@@ -8,7 +8,7 @@ import uuid
 from collections import defaultdict
 from datetime import datetime, timezone
 from functools import partial, wraps
-from io import StringIO
+from io import BytesIO
 
 try:
     import boto3
@@ -27,7 +27,7 @@ class Storer:
         Store a profiling report.
 
         file
-          A file-like object with profiling's data.
+          A file-like object in binary mode with profiling's data.
         """
         pass  # pragma: no cover
 
@@ -49,7 +49,7 @@ class FS(Storer):
 
     def store(self, file):
         path = self.path()
-        with open(path, "w") as fp:
+        with open(path, "wb") as fp:
             shutil.copyfileobj(file, fp)
 
 
@@ -137,9 +137,10 @@ class StackCollapse(Sampler):
         self._data[tuple(stack)] += 1
 
     def dump(self, storer):
-        file = StringIO()
+        file = BytesIO()
         for stack, hits in self._data.items():
-            print(";".join(stack[::-1]), hits, file=file)
+            line = f"{';'.join(stack[::-1])} {hits}\n"
+            file.write(line.encode())
         file.seek(0)
         storer.store(file)
 

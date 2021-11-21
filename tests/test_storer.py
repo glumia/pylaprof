@@ -30,7 +30,7 @@ def test_fs_store(tmpcwd):
     path = lambda: "report.txt"
     fs = FS(path=path)
 
-    with open(dummy_report, "r") as fp:
+    with open(dummy_report, "rb") as fp:
         fs.store(fp)
 
     assert filecmp.cmp(dummy_report, path())
