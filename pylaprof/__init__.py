@@ -107,12 +107,12 @@ class Sampler:
         """
         pass  # pragma: no cover
 
-    def dump(self, storer):
+    def dump(self, file):
         """
         Dump sampling data.
 
-        storer (Storer)
-          Storer to use for data's storage.
+        file
+          A file-like object in binary mode where to write data.
         """
         pass  # pragma: no cover
 
@@ -136,13 +136,10 @@ class StackCollapse(Sampler):
             frame = frame.f_back
         self._data[tuple(stack)] += 1
 
-    def dump(self, storer):
-        file = BytesIO()
+    def dump(self, file):
         for stack, hits in self._data.items():
             line = f"{';'.join(stack[::-1])} {hits}\n"
             file.write(line.encode())
-        file.seek(0)
-        storer.store(file)
 
 
 class Profiler(threading.Thread):
@@ -241,7 +238,10 @@ class Profiler(threading.Thread):
             end = time.time()
 
             if end - start >= self.min_time:
-                self.sampler.dump(self.storer)
+                file = BytesIO()
+                self.sampler.dump(file)
+                file.seek(0)
+                self.storer.store(file)
 
             stop_event.clear()
             self.clean_exit = True

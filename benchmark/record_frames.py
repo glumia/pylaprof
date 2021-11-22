@@ -6,7 +6,6 @@ native `frame` and `code` classes.
 """
 
 import pickle
-from io import BytesIO
 
 from handler import handler
 
@@ -50,11 +49,8 @@ class Raw(Sampler):
         # Record custom stack
         self.data.append(frames[-1])
 
-    def dump(self, storer):
-        file = BytesIO()
+    def dump(self, file):
         pickle.dump(self.data, file)
-        file.seek(0)
-        storer.store(file)
 
 
 if __name__ == "__main__":

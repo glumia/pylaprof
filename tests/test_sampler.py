@@ -1,4 +1,5 @@
 from collections import defaultdict
+from io import BytesIO
 from unittest.mock import Mock
 
 from pylaprof import StackCollapse
@@ -85,10 +86,9 @@ def test_stack_collapse_dump():
         "three (some_path/some_module.py:42);one (some_path/some_module.py:12) 4\n"
         + "three_v2 (some_path/some_module.py:82);some_func (some_path/some_other_module.py:11) 2\n"  # noqa
     ).encode()
-    storer = Mock()
+    file = BytesIO()
 
-    stack_collapse.dump(storer=storer)
+    stack_collapse.dump(file=file)
 
-    storer.store.assert_called()
-    args, _ = storer.store.call_args_list[0]
-    assert args[0].read() == exp_file
+    file.seek(0)
+    assert file.read() == exp_file

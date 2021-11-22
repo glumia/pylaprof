@@ -1,6 +1,7 @@
 import sys
 import threading
 from inspect import signature
+from io import BytesIO
 from unittest.mock import MagicMock, Mock
 
 from pylaprof import Profiler, profile
@@ -116,6 +117,8 @@ def test_profiler_run(monkeypatch):
     profiler = Profiler(period=period, sampler=Mock(), storer=Mock())
     profiler._test = Mock(side_effect=lambda ident: ident == ident1)
     profiler._stop_event = Mock()
+    report = b"I'm supposed to be a profiling report"
+    profiler.sampler.dump.side_effect = lambda file: file.write(report)
 
     profiler.start()
     profiler.stop()
@@ -126,6 +129,13 @@ def test_profiler_run(monkeypatch):
     sampler_calls = {args for args, _ in profiler.sampler.sample.call_args_list}
     assert (frame1,) in sampler_calls
     assert (frame2,) not in sampler_calls
+    profiler.sampler.dump.assert_called()
+    profiler.storer.store.assert_called_once()
+    store_args = profiler.storer.store.call_args_list[0][0]
+    file = store_args[0]
+    assert isinstance(file, BytesIO)
+    file.seek(0)
+    assert file.read() == report
     profiler._stop_event.wait.assert_called_with(period)
     profiler._stop_event.clear.assert_called()
     assert profiler.clean_exit is True
