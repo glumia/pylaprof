@@ -45,7 +45,7 @@ usage examples.
 - Close to zero impact on performances (check [benchmark](./benchmark) for
   more details).
 
-- Production-ready: pylaprof was built with the context of long-running
+- Reliable: pylaprof was built with the context of long-running
   applications or continuously invoked lambda functions in mind.
   It will never break your code or pollute your standard output or error
   with unwanted messages.
