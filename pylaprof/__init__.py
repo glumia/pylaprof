@@ -7,6 +7,7 @@ import time
 import uuid
 from collections import defaultdict
 from datetime import datetime, timezone
+from distutils.util import strtobool
 from functools import partial, wraps
 from io import BytesIO
 
@@ -163,7 +164,7 @@ class Profiler(threading.Thread):
           Defaults to an instance of `S3` if none.
 
         Profiler's activity can be controlled through the `PYLAPROF_DISABLE` environment
-        variable: if it is set to a truthy value then its context will be a noop (but
+        variable: if it is set to 'true' then profiler's context will be a noop (but
         existing profiling activity will continue until the profiled function doesn't
         return). This can be useful if you want to profile a function you use in
         production: just decorate it and turn on/off profiling through this environment
@@ -214,7 +215,7 @@ class Profiler(threading.Thread):
 
     def run(self):
         try:
-            if os.getenv("PYLAPROF_DISABLE"):
+            if strtobool(os.getenv("PYLAPROF_DISABLE", "false")):
                 self._stop_event.clear()
                 self.clean_exit = True
                 return
