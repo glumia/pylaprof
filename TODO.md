@@ -21,7 +21,7 @@
 - Add integration tests <--- OK!
 - Write a decent readme - show what we can do with pylaprof :)
   (note, add info about the performance impact and other considerations to run
-  pylaprof in production, e.g. time required for report's upload/storage)
+  pylaprof in production, e.g. time required for report's upload/storage) <--- OK!
 - Set-up CI/CD (Github Actions, package upload on PyPI). <--- OK!
 
 ## Wave 4 - Let's get production ready

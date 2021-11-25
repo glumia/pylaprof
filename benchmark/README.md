@@ -6,7 +6,7 @@ handler code.
 ./performance_impact.py --iterations 10 --period 0.01
 ```
 
-You can easily adapt it do measure the impact of pylaprof on any other function.
+You can easily adapt it to measure the impact of pylaprof on any other function.
 
 
 ## Profile and benchmark a sampler
@@ -38,7 +38,7 @@ set you want, the more the better):
 ./process_frames.py --iterations 1000
 ```
 
-Any other sampler implementation can be profiled and benchmarked in a similar way with
+Any other sampler implementation can be profiled and benchmarked similarly with
 smaller changes to `process_frames.py`.
 
 ## Benchmark results
@@ -66,7 +66,7 @@ Performance impact of pylaprof:
 ```
 
 The sampler takes ~3.3 μs to process a stack snapshot and the impact of pylaprof with a
-sampling period of 0.01 on handler's performance is indistinguishable from noise of
+sampling period of 0.01 on handler's performance is indistinguishable from the noise of
 other factors.
 
 **Note**: in those benchmarks we use a dummy storer that ignores the report file generated

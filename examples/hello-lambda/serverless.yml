@@ -8,6 +8,8 @@ provider:
       Action:
         - s3:PutObject
       Resource: arn:aws:s3:::pylaprof/*
+  environment:
+    PYLAPROF_DISABLE: false
 
 functions:
   dummy-fun:
