@@ -4,6 +4,8 @@ import argparse
 import sys
 from collections import defaultdict
 
+DEFAULT_OUT = "stackcollapse-merged.txt"
+
 
 def merge(files, dst):
     data = defaultdict(lambda: 0)
@@ -31,8 +33,8 @@ def main():
     parser.add_argument(
         "-o",
         "--out",
-        default="stackcollapse-merged.txt",
-        help="write resulting stackcollapse to this file.",
+        default=DEFAULT_OUT,
+        help=f"write resulting stackcollapse to this file (default: {DEFAULT_OUT})",
     )
     opts = parser.parse_args(sys.argv[1:])
 
