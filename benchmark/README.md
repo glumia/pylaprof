@@ -69,6 +69,6 @@ The sampler takes ~3.3 μs to process a stack snapshot and the impact of pylapro
 sampling period of 0.01 on handler's performance is indistinguishable from noise of
 other factors.
 
-Note: in those benchmarks we use a dummy storer that ignores the report file generated
-by the sampler, in a real scenario you need to take into account the time to store
-report's data on the filesystem or upload it on S3.
+**Note**: in those benchmarks we use a dummy storer that ignores the report file generated
+by the sampler, **in a real scenario you need to take into account the time to store
+report's data** on the filesystem or upload it on S3.
