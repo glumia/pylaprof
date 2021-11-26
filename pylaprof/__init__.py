@@ -7,7 +7,6 @@ import time
 import uuid
 from collections import defaultdict
 from datetime import datetime, timezone
-from distutils.util import strtobool
 from functools import partial, wraps
 from io import BytesIO
 
@@ -215,7 +214,14 @@ class Profiler(threading.Thread):
 
     def run(self):
         try:
-            if strtobool(os.getenv("PYLAPROF_DISABLE", "false")):
+            if os.getenv("PYLAPROF_DISABLE", "false").lower() in {
+                "y",
+                "yes",
+                "t",
+                "true",
+                "on",
+                "1",
+            }:
                 self._stop_event.clear()
                 self.clean_exit = True
                 return
