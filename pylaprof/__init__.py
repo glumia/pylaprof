@@ -163,11 +163,7 @@ class Profiler(threading.Thread):
           Defaults to an instance of `S3` if none.
 
         Profiler's activity can be controlled through the `PYLAPROF_DISABLE` environment
-        variable: if it is set to 'true' then profiler's context will be a noop (but
-        existing profiling activity will continue until the profiled function doesn't
-        return). This can be useful if you want to profile a function you use in
-        production: just decorate it and turn on/off profiling through this environment
-        variable.
+        variable: if it is set to 'true' then profiler's context will be a noop.
         """
         super().__init__()
 
@@ -212,16 +208,19 @@ class Profiler(threading.Thread):
         self.stop()
         self.join()
 
+    def _disabled(self):
+        return os.getenv("PYLAPROF_DISABLE", "false").lower() in {
+            "y",
+            "yes",
+            "t",
+            "true",
+            "on",
+            "1",
+        }
+
     def run(self):
         try:
-            if os.getenv("PYLAPROF_DISABLE", "false").lower() in {
-                "y",
-                "yes",
-                "t",
-                "true",
-                "on",
-                "1",
-            }:
+            if self._disabled():
                 self._stop_event.clear()
                 self.clean_exit = True
                 return
