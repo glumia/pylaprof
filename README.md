@@ -25,12 +25,12 @@ It is built around three main abstractions: the *profiler*, the *sampler*, and
 the *storer*.
 
 The profiler is the main component of pylaprof, it takes care of taking
-snapshots of your program's stack at regular intervals of times and feeding them
+snapshots of your program's stack at regular intervals and feeding them
 to the *sampler* for processing; at the end of the profiling session, it will
 then ask the *sampler* for a report and provide it to the *storer*.
 
-Take a look at the [source](./pylaprof/__init__.py) for more documentation and
-some pre-implemented samplers and storers or [here](./examples) for some
+Take a look at the [source](./pylaprof/__init__.py) for more documentation
+and some pre-implemented samplers and storers or [here](./examples) for some
 usage examples.
 
 ## Features
@@ -57,10 +57,10 @@ usage examples.
 [^1]: boto3 is optional and required only if you want to use the S3 storer.
 
 ### pylaprof-merge
-`pylaprof-merge` is a simple CLI tool to merge multiple stackcollapse reports
-into a single one. This might come in handy if you want to get an aggregated
-overview of a function or piece of code that is executed frequently for short
-periods. It is installed automatically if you get pylaprof with pip.
+`pylaprof-merge` is a CLI tool to merge multiple stackcollapse reports into a
+single one. This might come in handy if you want to get an aggregated overview
+of a function or piece of code that is executed frequently for short periods.
+It is installed automatically if you get pylaprof with pip.
 
 
 ## Installation
@@ -76,4 +76,4 @@ Or just copy-paste the pylaprof directory where you need it.
   https://github.com/vpelletier/pprofile): thanks to its authors for writing such
   accessible and well-documented code.
 - Thanks to @jvns for writing and distributing some of her *wizard zines* for free:
-  it's what got me into the rabbit hole of profiling in the first place.
+  that's what got me into the rabbit hole of profiling in the first place.
