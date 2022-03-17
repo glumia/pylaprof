@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "pylaprof"
-version = "0.4.5"
+version = "0.4.6"
 description = "A Python sampling profiler for AWS Lambda functions (and not only)."
 authors = ["Giuseppe Lumia <gius@glumia.dev>"]
 license = "MIT"
